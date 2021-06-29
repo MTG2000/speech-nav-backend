@@ -6,15 +6,12 @@ import python_speech_features
 import numpy as np
 from tensorflow import keras
 import librosa
-from flask_cors import CORS
-from urllib.request import urlopen
-
-UPLOAD_FOLDER = '/uploads'
+from flask_cors import CORS 
+ 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 app = Flask(__name__)
-CORS(app)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+CORS(app,, support_credentials=True) 
 
 SAMPLING_RATE = 8000
 word2idx = {
@@ -33,8 +30,9 @@ word2idx = {
 
 
 idx2word = [word for word in word2idx]
-loaded_model = keras.models.load_model(os.path.join('model', '3-convs_95acc.h5'))
 
+loaded_model = keras.models.load_model(os.path.join('model', '3-convs_95acc.h5'))
+# loaded_model = keras.models.load_model(os.path.join('/home/MtgTemp/mysite/model', '3-convs_95acc.h5'))
  
 
 def stt(file,sr):
