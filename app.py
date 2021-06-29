@@ -11,7 +11,7 @@ from flask_cors import CORS
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 app = Flask(__name__)
-CORS(app, support_credentials=True) 
+CORS(app,resources={r"/stt": {"origins": "http://localhost:3000"}}) 
 
 SAMPLING_RATE = 8000
 word2idx = {
