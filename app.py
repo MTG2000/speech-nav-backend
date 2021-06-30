@@ -13,7 +13,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 app = Flask(__name__)
 
 cors_config = {
-  "origins": ["http://localhost:3000"],
+  "origins": ["http://localhost:3000","https://mtg2000.github.io"],
   "methods": ["OPTIONS", "GET", "POST"],
   "allow_headers": '*'
 }
@@ -104,4 +104,4 @@ def upload():
         }
  
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
